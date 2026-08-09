@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Little Note ♡</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff5f7;
+      font-family: Georgia, serif;
+      color: #5a4148;
+      padding: 25px;
+    }
+
+    .letter {
+      max-width: 500px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 45px 35px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 35px rgba(120, 70, 85, 0.12);
+      animation: appear 1.5s ease;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.9;
+      margin: 0 0 25px;
+    }
+
+    .ending {
+      font-weight: bold;
+      font-size: 19px;
+    }
+
+    .heart {
+      font-size: 28px;
+      display: inline-block;
+      margin-left: 5px;
+      animation: heartbeat 1.4s infinite;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="letter">
+
+    <p>
+      Just a little note to remind you that you're genuinely special to me.
+      <br>
+      I hope you always remember how loved and appreciated you are.
+    </p>
+
+    <p class="ending">
+      Keep smiling, okay? You deserve all the good things.
+      <span class="heart">❤️</span>
+    </p>
+
+  </div>
+
+</body>
+  </html>
