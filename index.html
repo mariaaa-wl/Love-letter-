@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -115,7 +117,7 @@ body{
 }
 
 
-/* random glitter positions */
+/* glitter positions */
 
 .g1{left:8%;top:13%;animation-delay:.2s}
 .g2{left:20%;top:25%;animation-delay:1s}
@@ -188,7 +190,7 @@ body{
 
 
 /* =====================================
-   LITTLE FLOATING HEARTS
+   FLOATING HEARTS
 ===================================== */
 
 .floating-heart{
@@ -253,15 +255,23 @@ body{
 
     position:absolute;
 
-    width:min(86vw,335px);
+    width:min(88vw,350px);
 
-    height:520px;
+    /*
+       IMPORTANT:
+       No fixed height anymore.
+       The card grows according to the content.
+    */
+
+    height:auto;
+
+    min-height:0;
 
     left:50%;
     top:50%;
 
     transform:
-        translate(-50%, -45%)
+        translate(-50%,-50%)
         translateY(80px);
 
     background:#fffdfa;
@@ -273,13 +283,18 @@ body{
     box-shadow:
         0 18px 45px rgba(90,25,45,.25);
 
-    padding:38px 25px 30px;
+    padding:30px 20px 28px;
 
     text-align:center;
 
     color:#4a373b;
 
-    overflow:hidden;
+    /*
+       This is important.
+       Nothing gets cropped inside.
+    */
+
+    overflow:visible;
 
     opacity:0;
 
@@ -307,6 +322,7 @@ body{
     border:1px solid rgba(210,145,160,.25);
 
     pointer-events:none;
+
 }
 
 
@@ -320,18 +336,22 @@ body{
 
     z-index:2;
 
-    font-size:18px;
+    font-size:16px;
 
-    line-height:1.65;
+    line-height:1.55;
 
     margin-top:5px;
+
+    width:100%;
 }
 
 
 /* paragraphs */
 
 .letter-text p{
-    margin-bottom:23px;
+
+    margin-bottom:18px;
+
 }
 
 
@@ -345,11 +365,17 @@ body{
 
     justify-content:center;
 
+    align-items:center;
+
     gap:42px;
 
-    margin:8px 0 25px;
+    margin:7px 0 22px;
 
+    position:relative;
+
+    z-index:3;
 }
+
 
 .outline-heart{
 
@@ -361,9 +387,11 @@ body{
     transform:rotate(-45deg);
 
     border-left:2px solid #df829b;
+
     border-bottom:2px solid #df829b;
 
 }
+
 
 .outline-heart::before,
 .outline-heart::after{
@@ -381,16 +409,22 @@ body{
 
 }
 
+
 .outline-heart::before{
+
     top:-14px;
     left:-2px;
+
     border-bottom:none;
     border-right:none;
 }
 
+
 .outline-heart::after{
+
     left:12px;
     top:0;
+
     border-left:none;
     border-bottom:none;
 }
@@ -404,12 +438,18 @@ body{
 
     font-weight:bold;
 
-    font-size:20px;
+    font-size:19px;
 
     line-height:1.45;
 
-    margin-top:8px;
+    margin-top:4px;
+
+    position:relative;
+
+    z-index:3;
+
 }
+
 
 .red-heart{
 
@@ -417,13 +457,14 @@ body{
 
     font-family:Arial,sans-serif;
 
-    font-size:28px;
+    font-size:27px;
 
-    margin-left:5px;
+    margin-left:4px;
 
     animation:
         heartbeat 1.5s ease-in-out infinite;
 }
+
 
 @keyframes heartbeat{
 
@@ -453,7 +494,7 @@ body{
     top:50%;
 
     transform:
-        translate(-50%, -10%);
+        translate(-50%,-10%);
 
     background:#f1cf62;
 
@@ -472,9 +513,7 @@ body{
 }
 
 
-/* =====================================
-   ENVELOPE INNER BORDER
-===================================== */
+/* inner border */
 
 .envelope::before{
 
@@ -519,7 +558,7 @@ body{
 
 
 /* =====================================
-   ENVELOPE BOTTOM FOLDS
+   ENVELOPE FOLDS
 ===================================== */
 
 .fold-left{
@@ -542,6 +581,7 @@ body{
 
     z-index:1;
 }
+
 
 .fold-right{
 
@@ -597,6 +637,7 @@ body{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     font-size:30px;
@@ -609,7 +650,9 @@ body{
         transform .5s ease;
 }
 
+
 .envelope:hover .seal{
+
     transform:
         translate(-50%,-35%)
         scale(1.06);
@@ -648,8 +691,8 @@ body{
         tapPulse 1.8s ease-in-out infinite;
 
     pointer-events:none;
-
 }
+
 
 @keyframes tapPulse{
 
@@ -684,8 +727,8 @@ body{
 .open .envelope{
 
     transform:
-        translate(-50%,120%)
-        scale(.9);
+        translate(-50%,125%)
+        scale(.88);
 
     opacity:0;
 
@@ -720,7 +763,7 @@ body{
     box-shadow:
         0 0 6px white,
         0 0 14px white,
-        0 0 22px rgba(255,255,255,.9);
+        0 0 22px rgba(255,255,255,.95);
 
     pointer-events:none;
 
@@ -732,7 +775,31 @@ body{
 }
 
 
-/* little elongated glitter */
+/* glitter cross */
+
+.burst::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:2px;
+    height:16px;
+
+    background:white;
+
+    border-radius:5px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    box-shadow:
+        0 0 8px white;
+}
+
 
 .burst::after{
 
@@ -740,15 +807,18 @@ body{
 
     position:absolute;
 
-    width:2px;
-    height:12px;
+    width:16px;
+    height:2px;
 
     background:white;
 
     border-radius:5px;
 
-    left:2px;
-    top:-4px;
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
 
     box-shadow:
         0 0 8px white;
@@ -763,11 +833,11 @@ body{
 
         transform:
             translate(-50%,-50%)
-            scale(.3)
+            scale(.2)
             rotate(0deg);
     }
 
-    65%{
+    60%{
 
         opacity:1;
 
@@ -776,7 +846,7 @@ body{
                 calc(-50% + var(--x)),
                 calc(-50% + var(--y))
             )
-            scale(1.2)
+            scale(1.1)
             rotate(180deg);
     }
 
@@ -796,7 +866,7 @@ body{
 
 
 /* =====================================
-   SIDE BURST
+   EXTRA SIDE GLITTER
 ===================================== */
 
 .side-burst{
@@ -864,43 +934,105 @@ body{
 
 
 /* =====================================
-   MOBILE
+   SMALLER PHONES
 ===================================== */
 
 @media(max-width:380px){
 
     .letter{
 
-        height:500px;
+        width:88vw;
 
         padding:
-            34px 20px 25px;
+            27px 18px 25px;
     }
+
 
     .letter-text{
 
-        font-size:16px;
+        font-size:15px;
 
-        line-height:1.55;
+        line-height:1.48;
     }
 
-    .final-line{
 
-        font-size:18px;
+    .letter-text p{
+
+        margin-bottom:16px;
     }
+
 
     .heart-row{
 
-        gap:30px;
+        gap:28px;
+
+        margin-top:6px;
+
+        margin-bottom:19px;
     }
+
+
+    .final-line{
+
+        font-size:17px;
+    }
+
 
     .envelope{
 
+        width:88vw;
+
         height:210px;
     }
+
+}
+
+
+/* =====================================
+   VERY SMALL PHONES
+===================================== */
+
+@media(max-height:700px){
+
+    .letter{
+
+        padding-top:22px;
+
+        padding-bottom:20px;
+    }
+
+
+    .letter-text{
+
+        font-size:14.5px;
+
+        line-height:1.43;
+    }
+
+
+    .letter-text p{
+
+        margin-bottom:14px;
+    }
+
+
+    .heart-row{
+
+        margin-top:4px;
+
+        margin-bottom:15px;
+    }
+
+
+    .final-line{
+
+        font-size:16px;
+    }
+
 }
 
 </style>
+
 </head>
 
 
@@ -908,6 +1040,7 @@ body{
 
 
 <div id="scene">
+
 
     <div class="glow"></div>
 
@@ -955,17 +1088,20 @@ body{
 
         <div class="letter-text">
 
+
             <p>
                 I know life isn't always easy for you,
                 especially being away and having to
                 handle so much on your own.
             </p>
 
+
             <p>
                 I know you go through a lot,
                 and I just want you to know
                 that I see it.
             </p>
+
 
             <p>
                 I may not be able to make things
@@ -974,6 +1110,8 @@ body{
                 and appreciated. 🤍
             </p>
 
+
+            <!-- THREE HEARTS -->
 
             <div class="heart-row">
 
@@ -986,15 +1124,18 @@ body{
             </div>
 
 
+            <!-- FINAL LINE -->
+
             <div class="final-line">
 
                 Keep smiling, okay?
 
-               
-
-                <span class="red-heart">❤️</span>
+                <span class="red-heart">
+                    ❤️
+                </span>
 
             </div>
+
 
         </div>
 
@@ -1010,9 +1151,12 @@ body{
         id="envelope"
     >
 
+
         <div class="flap"></div>
 
+
         <div class="fold-left"></div>
+
 
         <div class="fold-right"></div>
 
@@ -1020,6 +1164,7 @@ body{
         <div class="seal">
             ♥
         </div>
+
 
     </div>
 
@@ -1036,6 +1181,7 @@ body{
 
 <script>
 
+
 /* =====================================
    OPEN ENVELOPE
 ===================================== */
@@ -1043,8 +1189,10 @@ body{
 const scene =
     document.getElementById("scene");
 
+
 const envelope =
     document.getElementById("envelope");
+
 
 let opened = false;
 
@@ -1059,50 +1207,51 @@ envelope.addEventListener(
 
 
         /* =================================
-           TWO-SIDED GLITTER BURST
+           MAIN TWO-SIDED GLITTER BURST
         ================================= */
 
         const centerX =
             window.innerWidth / 2;
 
+
         const centerY =
             window.innerHeight / 2;
 
 
-        /*
-           Main burst from both sides
-        */
-
-        for(let i = 0; i < 150; i++){
+        for(let i = 0; i < 180; i++){
 
             const particle =
                 document.createElement("div");
+
 
             particle.className =
                 "burst";
 
 
             /*
-               Split particles:
-               left side / right side
+               Half left
+               Half right
             */
 
             const side =
-                i % 2 === 0 ? -1 : 1;
+                i % 2 === 0
+                ? -1
+                : 1;
 
 
             const x =
                 side *
-                (100 + Math.random() * 260);
+                (80 + Math.random() * 300);
 
 
             const y =
                 (Math.random() - .5)
-                * 300;
+                * 330;
 
 
             particle.style.left =
                 centerX + "px";
+
 
             particle.style.top =
                 centerY + "px";
@@ -1113,21 +1262,20 @@ envelope.addEventListener(
                 x + "px"
             );
 
+
             particle.style.setProperty(
                 "--y",
                 y + "px"
             );
 
 
-            /*
-               Different sizes
-            */
-
             const size =
                 2 + Math.random() * 5;
 
+
             particle.style.width =
                 size + "px";
+
 
             particle.style.height =
                 size + "px";
@@ -1150,10 +1298,11 @@ envelope.addEventListener(
            EXTRA SIDE GLITTER
         ================================= */
 
-        for(let i = 0; i < 70; i++){
+        for(let i = 0; i < 90; i++){
 
             const particle =
                 document.createElement("div");
+
 
             particle.className =
                 "side-burst";
@@ -1165,26 +1314,27 @@ envelope.addEventListener(
 
             const startX =
                 leftSide
-                ? window.innerWidth * .22
-                : window.innerWidth * .78;
+                ? window.innerWidth * .20
+                : window.innerWidth * .80;
 
 
             const startY =
-                window.innerHeight * .5;
+                window.innerHeight * .50;
 
 
             const moveX =
                 leftSide
-                ? -(80 + Math.random()*180)
-                : (80 + Math.random()*180);
+                ? -(80 + Math.random()*200)
+                : (80 + Math.random()*200);
 
 
             const moveY =
-                (Math.random()-.5)*220;
+                (Math.random()-.5)*240;
 
 
             particle.style.left =
                 startX + "px";
+
 
             particle.style.top =
                 startY + "px";
@@ -1194,6 +1344,7 @@ envelope.addEventListener(
                 "--x",
                 moveX + "px"
             );
+
 
             particle.style.setProperty(
                 "--y",
@@ -1227,10 +1378,14 @@ envelope.addEventListener(
             250
         );
 
+
     }
 );
 
+
 </script>
 
+
 </body>
-                </html>
+
+   </html>
